@@ -12,6 +12,7 @@ const FormField = ({
   error, 
   required = false,
   className,
+  rows,
   ...props 
 }) => {
   return (
@@ -22,15 +23,31 @@ const FormField = ({
           {required && <span className="text-error ml-1">*</span>}
         </label>
       )}
-      <Input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        className={error ? "border-error focus:border-error focus:ring-error/20" : ""}
-        {...props}
-      />
+{type === "textarea" ? (
+        <textarea
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          rows={rows || 3}
+          className={cn(
+            "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none",
+            error ? "border-error focus:border-error focus:ring-error/20" : "",
+            "text-secondary placeholder-gray-400"
+          )}
+          {...props}
+        />
+      ) : (
+        <Input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          className={error ? "border-error focus:border-error focus:ring-error/20" : ""}
+          {...props}
+        />
+      )}
       {error && (
         <p className="text-sm text-error">{error}</p>
       )}
