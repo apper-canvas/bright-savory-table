@@ -388,68 +388,67 @@ const handleCheckout = () => {
             )}
 
             {/* Order Summary */}
-            <div className="border-t border-gray-200 p-6 space-y-4">
-            {/* Order Summary */}
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Subtotal</span>
-                <span className="text-secondary">${subtotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Tax</span>
-                <span className="text-secondary">${tax.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-<div className="flex justify-between">
-                <span className="text-gray-600">Delivery Fee</span>
-                <span className="text-secondary">
-                  {deliveryFee === 0 ? "FREE" : `$${deliveryFee.toFixed(2)}`}
-                </span>
-              </div>
-{serviceType === 'delivery' && (
-                <p className="text-xs text-gray-500">
-                  {subtotal > 50 
-                    ? "🎉 Free delivery on orders over $50!" 
-                    : `Add $${(50 - subtotal).toFixed(2)} more for free delivery`
-                  }
-                </p>
-              )}
-              <div className="border-t border-gray-200 pt-2">
-                <div className="flex justify-between font-semibold text-lg">
-                  <span className="text-secondary">Total</span>
-                  <span className="text-primary">${total.toFixed(2)}</span>
+<div className="border-t border-gray-200 p-6 space-y-4">
+              {/* Order Summary */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Subtotal</span>
+                  <span className="text-secondary">${subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Tax</span>
+                  <span className="text-secondary">${tax.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Delivery Fee</span>
+                  <span className="text-secondary">
+                    {deliveryFee === 0 ? "FREE" : `$${deliveryFee.toFixed(2)}`}
+                  </span>
+                </div>
+                {serviceType === 'delivery' && (
+                  <p className="text-xs text-gray-500">
+                    {subtotal > 50 
+                      ? "🎉 Free delivery on orders over $50!" 
+                      : `Add $${(50 - subtotal).toFixed(2)} more for free delivery`
+                    }
+                  </p>
+                )}
+                <div className="border-t border-gray-200 pt-2">
+                  <div className="flex justify-between font-semibold text-lg">
+                    <span className="text-secondary">Total</span>
+                    <span className="text-primary">${total.toFixed(2)}</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-{/* Actions */}
-            <div className="space-y-2">
-              <Button 
-                onClick={handleCheckout}
-                className="w-full"
-                size="lg"
-              >
-                {serviceType === 'delivery' ? (
-                  <>
-                    Order for Delivery
-                    {areaVerification.estimatedTime && (
-                      <span className="block text-xs opacity-80">
-                        {areaVerification.estimatedTime}
-                      </span>
-                    )}
-                  </>
-                ) : serviceType === 'pickup' ? 'Order for Pickup' : 'Reserve & Order'}
-              </Button>
-              
-              <Button 
-                onClick={onClear}
-                variant="ghost"
-                className="w-full text-gray-500 hover:text-error hover:bg-error/10"
-              >
-                Clear Cart
-              </Button>
+              {/* Actions */}
+              <div className="space-y-2">
+                <Button 
+                  onClick={handleCheckout}
+                  className="w-full"
+                  size="lg"
+                >
+                  {serviceType === 'delivery' ? (
+                    <>
+                      Order for Delivery
+                      {areaVerification.estimatedTime && (
+                        <span className="block text-xs opacity-80">
+                          {areaVerification.estimatedTime}
+                        </span>
+                      )}
+                    </>
+                  ) : serviceType === 'pickup' ? 'Order for Pickup' : 'Reserve & Order'}
+                </Button>
+                
+                <Button 
+                  onClick={onClear}
+                  variant="ghost"
+                  className="w-full text-gray-500 hover:text-error hover:bg-error/10"
+                >
+                  Clear Cart
+                </Button>
+              </div>
             </div>
-          </div>
           </>
         )}
       </div>
