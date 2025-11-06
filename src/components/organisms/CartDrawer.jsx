@@ -224,12 +224,12 @@ const CartDrawer = ({
           isOpen ? "opacity-100" : "opacity-0"
         )}
       >
-        <div 
+<div 
           className={cn(
             "bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col pointer-events-auto transform transition-all duration-300 ease-out",
             isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
           )}
-onClick={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
@@ -246,7 +246,7 @@ onClick={(e) => e.stopPropagation()}
           </div>
 
           {/* Modal Content */}
-<div className="flex-1 overflow-y-auto">
+<div className="flex-1 overflow-y-auto px-6 py-4" style={{ maxHeight: 'calc(90vh - 200px)' }}>
             {items.length === 0 && (
               <div className="flex flex-col items-center justify-center p-8 text-center h-full">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
