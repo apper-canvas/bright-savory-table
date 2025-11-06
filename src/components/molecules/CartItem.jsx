@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "@/components/atoms/Button";
-import ApperIcon from "@/components/ApperIcon";
-
+import React from 'react';
+import Button from '@/components/atoms/Button';
+import ApperIcon from '@/components/ApperIcon';
+import { cn } from '@/utils/cn';
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
   const handleQuantityChange = (newQuantity) => {
     if (newQuantity <= 0) {

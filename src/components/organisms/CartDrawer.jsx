@@ -7,6 +7,28 @@ import FormField from "@/components/molecules/FormField";
 import CartItem from "@/components/molecules/CartItem";
 import { cn } from "@/utils/cn";
 
+// Mock delivery areas and pricing
+const DELIVERY_AREAS = [
+  {
+    name: 'Downtown',
+    zipCodes: ['90210', '90211', '90212'],
+    fee: 3.99,
+    estimatedTime: '25-35 min'
+  },
+  {
+    name: 'Westside',
+    zipCodes: ['10001', '10002', '10003'],
+    fee: 4.99,
+    estimatedTime: '30-40 min'
+  },
+  {
+    name: 'Hollywood',
+    zipCodes: ['60601', '60602'],
+    fee: 2.99,
+    estimatedTime: '20-30 min'
+  }
+];
+
 const CartDrawer = ({ 
   isOpen, 
   onClose, 
@@ -17,13 +39,14 @@ const CartDrawer = ({
   serviceType,
   onServiceTypeChange
 }) => {
-  // Delivery form state
+  // State for delivery address form
   const [deliveryAddress, setDeliveryAddress] = useState({
     street: '',
     city: '',
     zipCode: '',
     notes: ''
   });
+
   const [areaVerification, setAreaVerification] = useState({
     isVerifying: false,
     isValid: false,
@@ -31,8 +54,10 @@ const CartDrawer = ({
     deliveryFee: 0,
     estimatedTime: ''
   });
+
   const [formErrors, setFormErrors] = useState({});
-const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+// Calculate totals
+  const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
   const tax = subtotal * 0.08; // 8% tax
   const deliveryFee = serviceType === 'delivery' ? areaVerification.deliveryFee : 0;
   const total = subtotal + tax + deliveryFee;
@@ -89,6 +114,8 @@ const subtotal = items.reduce((total, item) => total + (item.price * item.quanti
       }
     }, 1500);
   };
+
+};
 
   // Validate delivery form
   const validateDeliveryForm = () => {
