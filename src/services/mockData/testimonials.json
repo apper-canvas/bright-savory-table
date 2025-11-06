@@ -1,0 +1,74 @@
+[
+  {
+    "Id": 1,
+    "customerName": "Sarah Johnson",
+    "photo": "https://images.unsplash.com/photo-1494790108755-2616c667bc26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "Absolutely incredible experience! The truffle risotto was perfection and the service was impeccable. Chef Maria really knows how to create magic on a plate. Will definitely be returning soon!",
+    "date": "2023-11-15",
+    "verified": true
+  },
+  {
+    "Id": 2,
+    "customerName": "Michael Chen",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "The Wagyu ribeye was outstanding - perfectly cooked and incredibly tender. The atmosphere is elegant yet comfortable. This has become our go-to spot for special celebrations.",
+    "date": "2023-11-12",
+    "verified": true
+  },
+  {
+    "Id": 3,
+    "customerName": "Emily Rodriguez",
+    "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "From start to finish, every course was a masterpiece. The attention to detail in both presentation and flavor is remarkable. The wine pairing recommendations were spot on!",
+    "date": "2023-11-10",
+    "verified": true
+  },
+  {
+    "Id": 4,
+    "customerName": "David Thompson",
+    "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "Celebrated our anniversary here and couldn't have asked for a better evening. The beef Wellington was cooked to perfection and the chocolate lava cake was divine. Exceptional service throughout!",
+    "date": "2023-11-08",
+    "verified": true
+  },
+  {
+    "Id": 5,
+    "customerName": "Lisa Park",
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 4,
+    "review": "Beautiful restaurant with an amazing menu. The seafood paella was fantastic and the portion size was generous. The only minor issue was the wait time, but it was definitely worth it!",
+    "date": "2023-11-05",
+    "verified": true
+  },
+  {
+    "Id": 6,
+    "customerName": "James Wilson",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "The duck confit was absolutely phenomenal - tender, flavorful, and beautifully presented. The staff went above and beyond to accommodate our dietary restrictions. Highly recommended!",
+    "date": "2023-11-03",
+    "verified": true
+  },
+  {
+    "Id": 7,
+    "customerName": "Amanda Foster",
+    "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 5,
+    "review": "What an incredible culinary journey! Every dish was thoughtfully prepared and beautifully plated. The lobster bisque was rich and flavorful. This place sets the standard for fine dining.",
+    "date": "2023-11-01",
+    "verified": true
+  },
+  {
+    "Id": 8,
+    "customerName": "Robert Martinez",
+    "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+    "rating": 4,
+    "review": "Great food and ambiance. The pan-seared salmon was cooked perfectly and the sides complemented it wonderfully. Service was friendly and professional. Will be back with friends!",
+    "date": "2023-10-28",
+    "verified": true
+  }
+]

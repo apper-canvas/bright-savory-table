@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "date": "2023-12-15",
+    "time": "19:00",
+    "partySize": 4,
+    "customerName": "John Smith",
+    "phone": "(555) 123-4567",
+    "email": "john.smith@email.com",
+    "specialRequests": "Window table preferred, celebrating anniversary",
+    "status": "confirmed",
+    "timestamp": "2023-11-20T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "date": "2023-12-16",
+    "time": "18:30",
+    "partySize": 2,
+    "customerName": "Maria Garcia",
+    "phone": "(555) 987-6543",
+    "email": "maria.garcia@email.com",
+    "specialRequests": "Vegetarian options needed",
+    "status": "confirmed",
+    "timestamp": "2023-11-21T14:15:00Z"
+  },
+  {
+    "Id": 3,
+    "date": "2023-12-17",
+    "time": "20:00",
+    "partySize": 6,
+    "customerName": "David Johnson",
+    "phone": "(555) 456-7890",
+    "email": "david.johnson@email.com",
+    "specialRequests": "Birthday celebration, cake requested",
+    "status": "pending",
+    "timestamp": "2023-11-22T09:45:00Z"
+  }
+]
