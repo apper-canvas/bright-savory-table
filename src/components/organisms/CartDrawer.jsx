@@ -213,8 +213,8 @@ const handleCheckout = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto">
-          {items.length === 0 ? (
+<div className="flex-1 overflow-y-auto">
+          {items.length === 0 && (
             <div className="flex flex-col items-center justify-center p-8 text-center h-full">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <ApperIcon name="ShoppingCart" size={32} className="text-primary" />
@@ -225,20 +225,8 @@ const handleCheckout = () => {
                 Browse Menu
               </Button>
             </div>
-          ) : (
-            <div className="p-4 space-y-4">
-              {items.map((item) => (
-                <CartItem
-                  key={item.dishId}
-                  item={item}
-                  onUpdateQuantity={onUpdateQuantity}
-                  onRemove={onRemove}
-                />
-              ))}
-            </div>
           )}
         </div>
-
         {/* Footer */}
 {/* Service Type Selection */}
         <div className="border-t border-gray-200 p-6">
