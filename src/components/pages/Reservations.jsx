@@ -208,51 +208,43 @@ const Reservations = () => {
                   max={format(addDays(new Date(), 60), "yyyy-MM-dd")}
                 />
 
-                <div className="space-y-2">
+<div className="space-y-2">
                   <label className="block text-sm font-medium text-secondary">
                     Select Time <span className="text-error">*</span>
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <select
+                    value={formData.time}
+                    onChange={(e) => handleInputChange("time", e.target.value)}
+                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 bg-white text-secondary"
+                  >
+                    <option value="">Select a time</option>
                     {timeSlots.map(time => (
-                      <button
-                        key={time}
-                        type="button"
-                        onClick={() => handleInputChange("time", time)}
-                        className={`p-3 text-sm font-medium rounded-lg border-2 transition-all duration-200 ${
-                          formData.time === time
-                            ? "border-primary bg-primary text-white"
-                            : "border-gray-200 hover:border-primary/50 hover:bg-primary/5"
-                        }`}
-                      >
+                      <option key={time} value={time}>
                         {time}
-                      </button>
+                      </option>
                     ))}
-                  </div>
+                  </select>
                   {errors.time && <p className="text-sm text-error">{errors.time}</p>}
                 </div>
               </div>
 
               {/* Party Size */}
-              <div className="space-y-2">
+<div className="space-y-2">
                 <label className="block text-sm font-medium text-secondary">
                   Party Size <span className="text-error">*</span>
                 </label>
-                <div className="grid grid-cols-6 gap-2">
+                <select
+                  value={formData.partySize}
+                  onChange={(e) => handleInputChange("partySize", e.target.value)}
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 bg-white text-secondary"
+                >
+                  <option value="">Select party size</option>
                   {partySizes.map(size => (
-                    <button
-                      key={size}
-                      type="button"
-                      onClick={() => handleInputChange("partySize", size.toString())}
-                      className={`p-3 font-medium rounded-lg border-2 transition-all duration-200 ${
-                        formData.partySize === size.toString()
-                          ? "border-primary bg-primary text-white"
-                          : "border-gray-200 hover:border-primary/50 hover:bg-primary/5"
-                      }`}
-                    >
-                      {size}
-                    </button>
+                    <option key={size} value={size.toString()}>
+                      {size} {size === 1 ? 'person' : 'people'}
+                    </option>
                   ))}
-                </div>
+                </select>
                 {errors.partySize && <p className="text-sm text-error">{errors.partySize}</p>}
               </div>
 
