@@ -113,8 +113,6 @@ const CartDrawer = ({
         });
       }
     }, 1500);
-  };
-
 };
 
   // Validate delivery form
@@ -175,7 +173,7 @@ const CartDrawer = ({
     }
   }, [serviceType]);
 
-const handleCheckout = () => {
+  const handleCheckout = () => {
     // Validate delivery form if delivery is selected
     if (serviceType === 'delivery') {
       if (!validateDeliveryForm()) {
