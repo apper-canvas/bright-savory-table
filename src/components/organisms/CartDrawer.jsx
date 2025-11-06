@@ -10,11 +10,13 @@ const CartDrawer = ({
   items, 
   onUpdateQuantity, 
   onRemove, 
-  onClear 
+  onClear,
+  serviceType,
+  onServiceTypeChange
 }) => {
-  const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
   const tax = subtotal * 0.08; // 8% tax
-  const deliveryFee = subtotal > 50 ? 0 : 5.99;
+  const deliveryFee = serviceType === 'delivery' ? (subtotal > 50 ? 0 : 5.99) : 0;
   const total = subtotal + tax + deliveryFee;
 
   const handleCheckout = () => {
@@ -81,6 +83,57 @@ const CartDrawer = ({
         </div>
 
         {/* Footer */}
+{/* Service Type Selection */}
+        <div className="border-t border-gray-200 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Service Type</h3>
+          <div className="space-y-3">
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="radio"
+                name="serviceType"
+                value="delivery"
+                checked={serviceType === 'delivery'}
+                onChange={(e) => onServiceTypeChange(e.target.value)}
+                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+              />
+              <div className="flex-1">
+                <div className="text-sm font-medium text-gray-900">Delivery</div>
+                <div className="text-xs text-gray-500">
+                  {subtotal > 50 ? 'Free delivery on orders over $50' : '$5.99 delivery fee'}
+                </div>
+              </div>
+            </label>
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="radio"
+                name="serviceType"
+                value="pickup"
+                checked={serviceType === 'pickup'}
+                onChange={(e) => onServiceTypeChange(e.target.value)}
+                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+              />
+              <div className="flex-1">
+                <div className="text-sm font-medium text-gray-900">Pickup</div>
+                <div className="text-xs text-gray-500">Ready in 15-20 minutes</div>
+              </div>
+            </label>
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="radio"
+                name="serviceType"
+                value="dine-in"
+                checked={serviceType === 'dine-in'}
+                onChange={(e) => onServiceTypeChange(e.target.value)}
+                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+              />
+              <div className="flex-1">
+                <div className="text-sm font-medium text-gray-900">Dine-In</div>
+                <div className="text-xs text-gray-500">Reserve a table</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
         {items.length > 0 && (
           <div className="border-t border-gray-200 p-6 space-y-4">
             {/* Order Summary */}
@@ -115,11 +168,13 @@ const CartDrawer = ({
             {/* Actions */}
             <div className="space-y-2">
               <Button 
-                onClick={handleCheckout}
+onClick={handleCheckout}
                 className="w-full"
                 size="lg"
               >
-                Proceed to Checkout
+                {serviceType === 'delivery' ? 'Order for Delivery' : 
+                 serviceType === 'pickup' ? 'Order for Pickup' : 
+                 'Reserve & Order'}
               </Button>
               <Button 
                 onClick={onClear}

@@ -5,8 +5,9 @@ import Footer from "@/components/organisms/Footer";
 import CartDrawer from "@/components/organisms/CartDrawer";
 
 const Layout = () => {
-  const [cartItems, setCartItems] = useState([]);
+const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [serviceType, setServiceType] = useState('delivery'); // delivery, pickup, dine-in
 
   const addToCart = (item) => {
     setCartItems(prev => {
@@ -45,25 +46,29 @@ const Layout = () => {
       <Header cartItemCount={cartItemCount} />
       
       <main className="pt-16">
-        <Outlet context={{
+<Outlet context={{
           cartItems,
           addToCart,
           updateCartItemQuantity,
           removeFromCart,
           clearCart,
-          setIsCartOpen
+          setIsCartOpen,
+          serviceType,
+          setServiceType
         }} />
       </main>
       
       <Footer />
       
-      <CartDrawer
+<CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         items={cartItems}
         onUpdateQuantity={updateCartItemQuantity}
         onRemove={removeFromCart}
         onClear={clearCart}
+        serviceType={serviceType}
+        onServiceTypeChange={setServiceType}
       />
     </div>
   );
