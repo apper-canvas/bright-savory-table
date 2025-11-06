@@ -221,7 +221,7 @@ onClick={(e) => e.stopPropagation()}
           </div>
 
           {/* Modal Content */}
-          <div className="flex-1 overflow-y-auto">
+<div className="flex-1 overflow-y-auto">
             {items.length === 0 && (
               <div className="flex flex-col items-center justify-center p-8 text-center h-full">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -234,59 +234,59 @@ onClick={(e) => e.stopPropagation()}
                 </Button>
               </div>
             )}
-          </div>
-{/* Service Type Selection */}
-        <div className="border-t border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Service Type</h3>
-          <div className="space-y-3">
-            <label className="flex items-center space-x-3 cursor-pointer">
-              <input
-                type="radio"
-                name="serviceType"
-                value="delivery"
-                checked={serviceType === 'delivery'}
-                onChange={(e) => onServiceTypeChange(e.target.value)}
-                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-              />
-              <div className="flex-1">
-                <div className="text-sm font-medium text-gray-900">Delivery</div>
-                <div className="text-xs text-gray-500">
-                  {subtotal > 50 ? 'Free delivery on orders over $50' : '$5.99 delivery fee'}
-                </div>
-              </div>
-            </label>
-            <label className="flex items-center space-x-3 cursor-pointer">
-              <input
-                type="radio"
-                name="serviceType"
-                value="pickup"
-                checked={serviceType === 'pickup'}
-                onChange={(e) => onServiceTypeChange(e.target.value)}
-                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-              />
-              <div className="flex-1">
-                <div className="text-sm font-medium text-gray-900">Pickup</div>
-                <div className="text-xs text-gray-500">Ready in 15-20 minutes</div>
-              </div>
-            </label>
-            <label className="flex items-center space-x-3 cursor-pointer">
-              <input
-                type="radio"
-                name="serviceType"
-                value="dine-in"
-                checked={serviceType === 'dine-in'}
-                onChange={(e) => onServiceTypeChange(e.target.value)}
-                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-              />
-              <div className="flex-1">
-                <div className="text-sm font-medium text-gray-900">Dine-In</div>
-                <div className="text-xs text-gray-500">Reserve a table</div>
-              </div>
-            </label>
-          </div>
-        </div>
 
-{items.length > 0 && (
+            {/* Service Type Selection */}
+            <div className="border-t border-gray-200 p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Service Type</h3>
+              <div className="space-y-3">
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="serviceType"
+                    value="delivery"
+                    checked={serviceType === 'delivery'}
+                    onChange={(e) => onServiceTypeChange(e.target.value)}
+                    className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                  />
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-900">Delivery</div>
+                    <div className="text-xs text-gray-500">
+                      {subtotal > 50 ? 'Free delivery on orders over $50' : '$5.99 delivery fee'}
+                    </div>
+                  </div>
+                </label>
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="serviceType"
+                    value="pickup"
+                    checked={serviceType === 'pickup'}
+                    onChange={(e) => onServiceTypeChange(e.target.value)}
+                    className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                  />
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-900">Pickup</div>
+                    <div className="text-xs text-gray-500">Ready in 15-20 minutes</div>
+                  </div>
+                </label>
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="serviceType"
+                    value="dine-in"
+                    checked={serviceType === 'dine-in'}
+                    onChange={(e) => onServiceTypeChange(e.target.value)}
+                    className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                  />
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-gray-900">Dine-In</div>
+                    <div className="text-xs text-gray-500">Reserve a table</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            {items.length > 0 && (
           <>
             {/* Order Items Section */}
             <div className="border-t border-gray-200 p-6 space-y-4 bg-surface/50">
@@ -465,10 +465,10 @@ onClick={(e) => e.stopPropagation()}
                 >
                   Clear Cart
                 </Button>
-              </div>
+</div>
             </div>
-</>
-        )}
+            </>
+            )}
           </div>
         </div>
       </div>
