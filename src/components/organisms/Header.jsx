@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
 import NavLink from "@/components/molecules/NavLink";
 import ApperIcon from "@/components/ApperIcon";
+import CartDrawer from "@/components/organisms/CartDrawer";
 import { cn } from "@/utils/cn";
 
 const Header = ({ cartItemCount = 0 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([
+    // Mock cart data for demonstration
+    {
+      dishId: 1,
+      name: "Grilled Salmon",
+      price: 28.99,
+      quantity: 1,
+      image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400"
+    },
+    {
+      dishId: 2,
+      name: "Caesar Salad",
+      price: 12.99,
+      quantity: 2,
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400"
+    }
+  ]);
+  const [serviceType, setServiceType] = useState('pickup');
   const navigate = useNavigate();
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -22,9 +42,38 @@ const Header = ({ cartItemCount = 0 }) => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleCartClick = () => {
-    // This would typically open a cart drawer/modal
-    console.log("Cart clicked");
+const handleCartClick = () => {
+    setCartOpen(true);
+  };
+
+  // Cart management functions
+  const handleUpdateQuantity = (dishId, newQuantity) => {
+    if (newQuantity <= 0) {
+      handleRemoveFromCart(dishId);
+      return;
+    }
+    
+    setCartItems(prev => prev.map(item => 
+      item.dishId === dishId 
+        ? { ...item, quantity: newQuantity }
+        : item
+    ));
+    toast.success('Quantity updated');
+  };
+
+  const handleRemoveFromCart = (dishId) => {
+    setCartItems(prev => prev.filter(item => item.dishId !== dishId));
+    toast.success('Item removed from cart');
+  };
+
+  const handleClearCart = () => {
+    setCartItems([]);
+    toast.success('Cart cleared');
+  };
+
+  const handleServiceTypeChange = (newServiceType) => {
+    setServiceType(newServiceType);
+    toast.success(`Switched to ${newServiceType}`);
   };
 
   const navigationItems = [
@@ -123,7 +172,7 @@ const Header = ({ cartItemCount = 0 }) => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+{/* Mobile Menu Overlay */}
       <div 
         className={cn(
           "fixed inset-0 z-40 lg:hidden transition-all duration-300",
@@ -187,6 +236,18 @@ const Header = ({ cartItemCount = 0 }) => {
           </div>
         </nav>
       </div>
+
+      {/* Cart Drawer */}
+      <CartDrawer
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={cartItems}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemove={handleRemoveFromCart}
+        onClear={handleClearCart}
+        serviceType={serviceType}
+        onServiceTypeChange={handleServiceTypeChange}
+      />
     </>
   );
 };
