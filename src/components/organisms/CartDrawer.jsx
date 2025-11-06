@@ -293,6 +293,29 @@ const handleCheckout = () => {
 
 {items.length > 0 && (
           <>
+            {/* Order Items Section */}
+            <div className="border-t border-gray-200 p-6 space-y-4 bg-surface/50">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <ApperIcon name="ShoppingCart" size={18} className="text-primary" />
+                  <h3 className="font-semibold text-secondary">Order Items</h3>
+                </div>
+                <span className="text-sm text-gray-500">{items.length} {items.length === 1 ? "item" : "items"}</span>
+              </div>
+              
+              {/* Cart Items with Quantity Controls */}
+              <div className="space-y-3 max-h-48 overflow-y-auto">
+                {items.map((item) => (
+                  <CartItem
+                    key={item.dishId}
+                    item={item}
+                    onUpdateQuantity={onUpdateQuantity}
+                    onRemove={onRemove}
+                  />
+                ))}
+              </div>
+            </div>
+
             {/* Delivery Address Form */}
             {serviceType === 'delivery' && (
               <div className="border-t border-gray-200 p-6 space-y-4 bg-background/50">
@@ -388,7 +411,7 @@ const handleCheckout = () => {
             )}
 
             {/* Order Summary */}
-<div className="border-t border-gray-200 p-6 space-y-4">
+            <div className="border-t border-gray-200 p-6 space-y-4">
               {/* Order Summary */}
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
