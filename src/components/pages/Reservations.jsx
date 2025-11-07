@@ -196,7 +196,7 @@ const Reservations = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Date & Time Selection */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
+<FormField
                   label="Select Date"
                   id="date"
                   type="date"
@@ -206,6 +206,8 @@ const Reservations = () => {
                   required
                   min={format(new Date(), "yyyy-MM-dd")}
                   max={format(addDays(new Date(), 60), "yyyy-MM-dd")}
+                  disabled={false}
+                  readOnly={false}
                 />
 
 <div className="space-y-2">
@@ -213,9 +215,10 @@ const Reservations = () => {
                     Select Time <span className="text-error">*</span>
                   </label>
                   <select
-                    value={formData.time}
+value={formData.time}
                     onChange={(e) => handleInputChange("time", e.target.value)}
                     className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 bg-white text-secondary"
+                    disabled={false}
                   >
                     <option value="">Select a time</option>
                     {timeSlots.map(time => (
@@ -234,9 +237,10 @@ const Reservations = () => {
                   Party Size <span className="text-error">*</span>
                 </label>
                 <select
-                  value={formData.partySize}
+value={formData.partySize}
                   onChange={(e) => handleInputChange("partySize", e.target.value)}
                   className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 bg-white text-secondary"
+                  disabled={false}
                 >
                   <option value="">Select party size</option>
                   {partySizes.map(size => (
@@ -250,7 +254,7 @@ const Reservations = () => {
 
               {/* Contact Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
+<FormField
                   label="Full Name"
                   id="customerName"
                   value={formData.customerName}
@@ -258,9 +262,11 @@ const Reservations = () => {
                   error={errors.customerName}
                   required
                   placeholder="Enter your full name"
+                  disabled={false}
+                  readOnly={false}
                 />
 
-                <FormField
+<FormField
                   label="Phone Number"
                   id="phone"
                   type="tel"
@@ -269,10 +275,12 @@ const Reservations = () => {
                   error={errors.phone}
                   required
                   placeholder="(555) 123-4567"
+                  disabled={false}
+                  readOnly={false}
                 />
               </div>
 
-              <FormField
+<FormField
                 label="Email Address"
                 id="email"
                 type="email"
@@ -281,6 +289,8 @@ const Reservations = () => {
                 error={errors.email}
                 required
                 placeholder="your.email@example.com"
+                disabled={false}
+                readOnly={false}
               />
 
               {/* Special Requests */}
@@ -288,13 +298,15 @@ const Reservations = () => {
                 <label htmlFor="specialRequests" className="block text-sm font-medium text-secondary">
                   Special Requests (Optional)
                 </label>
-                <textarea
+<textarea
                   id="specialRequests"
                   rows={4}
                   value={formData.specialRequests}
                   onChange={(e) => handleInputChange("specialRequests", e.target.value)}
                   placeholder="Any dietary restrictions, seating preferences, or special occasions?"
                   className="w-full px-4 py-3 bg-surface border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors duration-200 resize-none"
+                  disabled={false}
+                  readOnly={false}
                 />
               </div>
 
